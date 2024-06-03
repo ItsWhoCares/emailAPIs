@@ -39,6 +39,8 @@ app.get("/hasAccountsIn", async (req, res) => {
   res.json(await emalUsedIn(email));
 });
 
-app.listen(443, () => {
-  console.log("Server is running on port localhost:443");
+app.listen(process.env.PORT || 4433, () => {
+  console.log(
+    `Server is running on port localhost:${process.env.PORT || 4433}`
+  );
 });
