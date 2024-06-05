@@ -1,6 +1,6 @@
 const permute = require("email-permutator");
 const express = require("express");
-const emalUsedIn = require("./helpers");
+const emailUsedIn = require("./helpers");
 const app = express();
 
 app.get("/emailPermutator", (req, res) => {
@@ -36,7 +36,7 @@ app.get("/hasAccountsIn", async (req, res) => {
   if (!email) {
     return res.status(400).json({ error: "email is required" });
   }
-  res.json(await emalUsedIn(email));
+  res.json(await emailUsedIn(email));
 });
 
 app.listen(process.env.PORT || 4433, () => {
